@@ -12,14 +12,16 @@
       display: flex;
       gap: 8px;
 
-      span {
+      a {
         background-color: rgb(233, 216, 253);
-        font-size: 12px;
+        font-size: 13px;
         display: inline-flex;
         padding: 8px 16px;
         border-radius: 4px;
         font-weight: 600;
         letter-spacing: 1px;
+        text-decoration: none;
+        color: rgb(45, 55, 72);
       }
     }
 
@@ -53,6 +55,17 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    &__image {
+      max-width: 50px;
+      border-radius: 4px;
+      overflow: hidden;
+      // background-color: #f7f7f7;
+
+      img {
+        float: left;
+      }
+    }
   }
 
   &--contact {

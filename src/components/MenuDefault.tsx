@@ -11,6 +11,7 @@ const MenuDefault: React.FC<MenuDefaultProps> = ({ showHome = true }) => { // Va
       {showHome && <Link to="/">Inicio</Link>}
       <Link to="/about">Acerca de</Link>
       <Link to="/articles">Artículos</Link>
+      <Link to="/categories">Categorías</Link>
       <Link to="/contact">Contacto</Link>
     </>
   );

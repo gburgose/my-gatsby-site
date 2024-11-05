@@ -3,7 +3,7 @@ import CardDefault from "./CardDefault";
 import PaginationDefault from "./PaginationDefault";
 
 type ArchiveDefaultProps = {
-  articles: { title: string; slug: string; content: { raw: string }; categories: { title: string }[]; color: string }[];
+  articles: { title: string; slug: string; content: { raw: string }; categories: { title: string; description: { raw: string }; image: { file: { url: string }; localFile: { childImageSharp: any } }; slug: string; color: string }[] }[];
   currentPage: number;
   numPages: number;
 };

@@ -5,20 +5,20 @@ import DefaultLayout from "../layouts/default";
 import ArchiveDefault from "../components/ArchiveDefault";
 import NewsletterDefault from "../components/NewsletterDefault";
 
-const HomeTemplate: React.FC<PageProps<{ allContentfulArticle: { nodes: { title: string; slug: string; createdAt: string; content: { raw: string }; categories: { title: string; description: { raw: string }; image: { file: { url: string }; localFile: { childImageSharp: any } } }[] }[] } }>> = ({ data, pageContext }) => {
+const ArticlesPage: React.FC<PageProps<{ allContentfulArticle: { nodes: { title: string; slug: string; createdAt: string; content: { raw: string }; categories: { title: string; description: { raw: string }; image: { file: { url: string }; localFile: { childImageSharp: any } }; slug: string; color: string }[] }[] } }>> = ({ data, pageContext }) => {
   const articles = data.allContentfulArticle.nodes;
-  const categories = articles.flatMap(article => article.categories);
   const { currentPage, numPages } = pageContext;
 
   return (
     <DefaultLayout>
-      <ArchiveDefault articles={articles} categories={categories} currentPage={currentPage} numPages={numPages} />
+      {/* <pre>{JSON.stringify(articles, null, 2)}</pre> */}
+      <ArchiveDefault articles={articles} currentPage={currentPage} numPages={numPages} />
       <NewsletterDefault />
     </DefaultLayout>
   );
 };
 
-export default HomeTemplate;
+export default ArticlesPage;
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
@@ -33,6 +33,7 @@ export const query = graphql`
         categories {
           title
           color
+          slug
           description {
             raw
           }

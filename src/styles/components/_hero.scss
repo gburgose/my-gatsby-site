@@ -2,11 +2,30 @@
 @use '../base/mixins';
 
 .hero {
+  &--archive {
+    // background-color: white;
+    display: flex;
+    align-items: flex-end;
+    // min-height: 350px;
+
+    &__container {
+      @include mixins.container;
+    }
+
+    &__content {
+      max-width: 800px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
   &--article {
     background-color: white;
     display: flex;
     align-items: flex-end;
-    min-height: 550px;
+    min-height: 350px;
 
     &__container {
       @include mixins.container;

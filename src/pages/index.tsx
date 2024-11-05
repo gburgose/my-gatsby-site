@@ -32,6 +32,7 @@ export const query = graphql`
         categories {
           title
           color
+          slug
           description {
             raw
           }

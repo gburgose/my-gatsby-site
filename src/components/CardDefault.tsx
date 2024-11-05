@@ -6,8 +6,15 @@ type CardDefaultProps = {
     title: string;
     slug: string;
     content?: { raw: string };
-    categories: { title: string; color: string }[];
+    categories: { title: string; color: string; slug: string }[];
   };
+};
+
+const hexToRgba = (hex: string, alpha: number) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
 
 const CardDefault: React.FC<CardDefaultProps> = ({ article }) => {
@@ -28,13 +35,14 @@ const CardDefault: React.FC<CardDefaultProps> = ({ article }) => {
     <article className="card card--default" key={article.slug}>
       <div className="card--default__categories">
         {article.categories.map((category) => (
-          <span
-            key={category.title}
-            className="card--default__category"
-            style={{ backgroundColor: category.color }}
+          <Link
+            key={category.slug}
+            to={`/categories/${category.slug}`}
+            className="card--default__category card--default__category-link"
+            style={{ backgroundColor: hexToRgba(category.color, 0.2) }}
           >
             {category.title}
-          </span>
+          </Link>
         ))}
       </div>
       <h3 className="card--default__title">

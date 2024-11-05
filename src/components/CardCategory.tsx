@@ -1,18 +1,20 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 type CardCategoryProps = {
   category: {
     title: string;
     description: { raw: string };
     image: { file: { url: string }; localFile: { childImageSharp: any } };
+    slug: string;
   };
 };
 
-const truncateText = (text: string, maxLength: number) => {
-  if (text.length > maxLength) {
-    return text.substring(0, maxLength) + "…";
+const truncateText = (text: string, maxWords: number = 40) => {
+  const words = text.split(" ");
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(" ") + "…";
   }
   return text;
 };
@@ -20,10 +22,10 @@ const truncateText = (text: string, maxLength: number) => {
 const CardCategory: React.FC<CardCategoryProps> = ({ category }) => {
   const parsedDescription = JSON.parse(category.description.raw);
   const descriptionText = parsedDescription.content[0]?.content[0]?.value || "";
-  const truncatedDescription = truncateText(descriptionText, 100);
+  const truncatedDescription = truncateText(descriptionText);
 
   return (
-    <article className="card card--category" key={category.title}>
+    <article className="card card--category" key={category.slug}>
       <div className="card--category__image">
         {category.image && category.image.localFile && category.image.localFile.childImageSharp && (
           <GatsbyImage
@@ -33,7 +35,11 @@ const CardCategory: React.FC<CardCategoryProps> = ({ category }) => {
           />
         )}
       </div>
-      <h3 className="card--category__title title title--h3">{category.title}</h3>
+      <h3 className="card--category__title title title--h3">
+        <Link to={`/categories/${category.slug}`} className="card--category__link">
+          {category.title}
+        </Link>
+      </h3>
       <div className="card--category__description paragraph">
         {truncatedDescription}
       </div>
