@@ -1,0 +1,42 @@
+@use '../base/mixins';
+
+.footer {
+  &--default {
+    // background-color: white;
+    padding: 50px 0;
+
+    &__container {
+      @include mixins.container;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    &__logo {
+      max-width: 140px;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      &__title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        a {
+          font-size: 16px;
+          color: #333;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

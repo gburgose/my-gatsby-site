@@ -1,0 +1,15 @@
+@use '../base/mixins';
+
+.article {
+  &--default {
+    &__container {
+      @include mixins.container;
+    }
+
+    &__categories {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.form {
+  &--contact {
+    background-color: white;
+    padding: 30px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    &__field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+
+      label {
+        color: rgb(113, 128, 150);
+      }
+
+      input,
+      textarea {
+        padding: 15px;
+        border: none;
+        border-radius: 4px;
+        font-size: 15px;
+        background-color: rgb(226, 232, 240);
+      }
+
+      textarea {
+        resize: none;
+        min-height: 100px;
+      }
+    }
+  }
+}

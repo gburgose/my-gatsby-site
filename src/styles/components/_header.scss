@@ -1,0 +1,58 @@
+// src/components/_header.scss
+@use '../base/mixins';
+
+.header {
+  &--default {
+    background-color: white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+
+    &__container {
+      @include mixins.container;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__logo {
+      display: block;
+      width: 140px;
+
+      a {
+        display: block;
+      }
+    }
+
+    &__menu {
+      display: flex;
+      align-items: center;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        font-size: 17px;
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: #333;
+          transition: width 0.3s;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

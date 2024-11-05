@@ -1,0 +1,28 @@
+.title-base {
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(45, 55, 72);
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.title {
+  &--h1 {
+    @extend .title-base;
+    font-size: 40px;
+  }
+
+  &--h2 {
+    @extend .title-base;
+    font-family: "Libre Baskerville", serif;
+    font-size: 35px;
+  }
+
+  &--h3 {
+    @extend .title-base;
+    font-size: 22px;
+  }
+}

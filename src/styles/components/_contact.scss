@@ -1,0 +1,28 @@
+@use '../base/mixins';
+
+.contact {
+  &--default {
+
+    &__container {
+      @include mixins.container;
+      display: grid;
+      grid-template-columns: 5fr 3fr;
+      gap: 30px;
+    }
+
+    &__content {
+      // background-color: red;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    &__sidebar {
+      // background-color: red;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+  }
+}

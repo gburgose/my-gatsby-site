@@ -1,0 +1,12 @@
+.paragraph {
+  color: rgb(113, 128, 150);
+  line-height: 1.5;
+
+  p {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

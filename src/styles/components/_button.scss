@@ -1,0 +1,24 @@
+.button {
+  display: inline-block;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  width: auto;
+  width: fit-content;
+  min-width: 0;
+  cursor: pointer;
+
+  &--submit {
+    background-color: rgb(102, 126, 234);
+    padding: 20px 50px;
+    color: white;
+    border-radius: 40px;
+  }
+
+  &:disabled {
+    background-color: rgba(200, 200, 200, 0.7);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+  }
+}
